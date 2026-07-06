@@ -107,7 +107,7 @@ export default function Home() {
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="mailto:hello@motleytech.com?subject=Let's%20build%20with%20MotleyTech"
+                  href="mailto:hello@motleytech.io?subject=Let's%20build%20with%20MotleyTech"
                   className="inline-flex min-h-12 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"
                 >
                   Start a Project
@@ -258,10 +258,10 @@ export default function Home() {
               </p>
             </div>
             <a
-              href="mailto:hello@motleytech.com?subject=MotleyTech%20project%20inquiry"
+              href="mailto:hello@motleytech.io?subject=MotleyTech%20project%20inquiry"
               className="inline-flex min-h-14 items-center justify-center border border-white bg-white px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#10051b] transition hover:-translate-y-0.5 hover:bg-cyan-100"
             >
-              hello@motleytech.com
+              hello@motleytech.io
             </a>
           </div>
         </div>

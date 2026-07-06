@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next"
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://motleytech.com'),
+  metadataBase: new URL('https://motleytech.io'),
   title: {
     default: 'MotleyTech LLC | AI-Enabled Software Development and Digital Marketing',
     template: '%s | MotleyTech LLC',

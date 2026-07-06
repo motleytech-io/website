@@ -70,10 +70,10 @@ export default function Home() {
               <Image
                 src="/logo.svg"
                 alt="MotleyTech"
-                width={210}
-                height={48}
+                width={300}
+                height={67}
                 priority
-                className="h-12 w-auto drop-shadow-[0_0_18px_rgba(34,211,238,.36)] transition group-hover:drop-shadow-[0_0_24px_rgba(244,114,182,.5)]"
+                className="h-16 w-auto drop-shadow-[0_0_12px_rgba(244,114,182,.34)] transition group-hover:drop-shadow-[0_0_18px_rgba(244,114,182,.5)] sm:h-[4.75rem]"
               />
             </a>
             <nav className="hidden items-center gap-7 text-sm font-semibold uppercase tracking-[.18em] text-cyan-100/80 md:flex">

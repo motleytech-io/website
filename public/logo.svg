@@ -1,33 +1,43 @@
-<svg width="560" height="128" viewBox="0 0 560 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="760" height="170" viewBox="0 0 760 170" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">MotleyTech logo</title>
-  <desc id="desc">Neon vaporwave MotleyTech wordmark with an MT monogram.</desc>
+  <desc id="desc">Readable hot pink vaporwave cursive MotleyTech wordmark.</desc>
   <defs>
-    <linearGradient id="markGradient" x1="10" y1="10" x2="116" y2="118" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#67E8F9"/>
-      <stop offset="0.48" stop-color="#F0ABFC"/>
-      <stop offset="1" stop-color="#FB7185"/>
+    <linearGradient id="pink" x1="42" y1="38" x2="670" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE8F8"/>
+      <stop offset="0.22" stop-color="#FF8BDD"/>
+      <stop offset="0.62" stop-color="#FF42CB"/>
+      <stop offset="1" stop-color="#FFB0D8"/>
     </linearGradient>
-    <linearGradient id="wordGradient" x1="146" y1="24" x2="548" y2="102" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="0.44" stop-color="#A5F3FC"/>
-      <stop offset="1" stop-color="#F0ABFC"/>
-    </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#22D3EE" flood-opacity="0.75"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#D946EF" flood-opacity="0.55"/>
+    <filter id="softNeon" x="-10%" y="-36%" width="120%" height="172%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="3.5" flood-color="#F472B6" flood-opacity="0.56"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#D946EF" flood-opacity="0.28"/>
+      <feDropShadow dx="-2" dy="3" stdDeviation="0" flood-color="#22D3EE" flood-opacity="0.44"/>
     </filter>
   </defs>
-  <rect width="560" height="128" rx="0" fill="transparent"/>
-  <g filter="url(#glow)">
-    <path d="M17 105L36 23H57L65 67L89 23H111L92 105H71L80 66L58 105H45L37 66L28 105H17Z" fill="url(#markGradient)"/>
-    <path d="M74 43L79 23H123L118 43H106L92 105H70L84 43H74Z" fill="url(#markGradient)"/>
-    <path d="M20 109H97L103 119H14L20 109Z" fill="#67E8F9" fill-opacity="0.9"/>
-    <path d="M25 15H123L117 5H31L25 15Z" fill="#F0ABFC" fill-opacity="0.85"/>
-  </g>
-  <g filter="url(#glow)">
-    <text x="146" y="79" fill="url(#wordGradient)" font-family="Arial Black, Impact, Haettenschweiler, sans-serif" font-size="48" font-weight="900" letter-spacing="3">MOTLEYTECH</text>
-    <text x="150" y="105" fill="#67E8F9" fill-opacity="0.88" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="8">SOFTWARE  AI  MARKETING</text>
-  </g>
-  <path d="M150 89H545" stroke="#22D3EE" stroke-opacity="0.65" stroke-width="2"/>
-  <path d="M150 113H431" stroke="#F472B6" stroke-opacity="0.62" stroke-width="2"/>
+  <rect width="760" height="170" fill="transparent"/>
+  <text
+    x="34"
+    y="116"
+    fill="#17051A"
+    stroke="#17051A"
+    stroke-width="8"
+    stroke-linejoin="round"
+    font-family="'Brush Script MT', 'Segoe Script', 'Snell Roundhand', 'Apple Chancery', cursive"
+    font-size="108"
+    font-weight="700"
+    letter-spacing="-1"
+  >MotleyTech</text>
+  <text
+    x="34"
+    y="116"
+    fill="url(#pink)"
+    stroke="#E91EBB"
+    stroke-width="0.8"
+    stroke-linejoin="round"
+    filter="url(#softNeon)"
+    font-family="'Brush Script MT', 'Segoe Script', 'Snell Roundhand', 'Apple Chancery', cursive"
+    font-size="108"
+    font-weight="700"
+    letter-spacing="-1"
+  >MotleyTech</text>
 </svg>

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description:
       'AI-enabled software development, fractional CTO and CMO leadership, AI roadmap architecture, and full-funnel digital marketing.',
     type: 'website',
-    images: ['/motleytech-vaporwave-hero.png', '/motleytech-logo.svg'],
+    images: ['/hero.png', '/logo.svg'],
   },
 }
 

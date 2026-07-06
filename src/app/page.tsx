@@ -55,7 +55,7 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-[#070512] text-white">
       <section className="relative min-h-[92vh] px-5 pb-16 pt-5 sm:px-8 lg:px-12">
         <Image
-          src="/motleytech-vaporwave-hero.png"
+          src="/hero.png"
           alt="Neon vaporwave technology skyline background"
           fill
           priority
@@ -68,7 +68,7 @@ export default function Home() {
           <header className="flex items-center justify-between border-b border-cyan-300/20 pb-5">
             <a href="#top" className="group flex items-center">
               <Image
-                src="/motleytech-logo.svg"
+                src="/logo.svg"
                 alt="MotleyTech"
                 width={210}
                 height={48}

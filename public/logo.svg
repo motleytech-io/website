@@ -1,43 +1,49 @@
 <svg width="760" height="170" viewBox="0 0 760 170" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">MotleyTech logo</title>
-  <desc id="desc">Readable hot pink vaporwave cursive MotleyTech wordmark.</desc>
+  <desc id="desc">Bold two-tone vaporwave MotleyTech wordmark, MOTLEY in pink and TECH in cyan.</desc>
   <defs>
-    <linearGradient id="pink" x1="42" y1="38" x2="670" y2="128" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FFE8F8"/>
-      <stop offset="0.22" stop-color="#FF8BDD"/>
-      <stop offset="0.62" stop-color="#FF42CB"/>
-      <stop offset="1" stop-color="#FFB0D8"/>
+    <linearGradient id="pinkGrad" x1="0" y1="0" x2="360" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF9AF0"/>
+      <stop offset="1" stop-color="#F0299D"/>
     </linearGradient>
-    <filter id="softNeon" x="-10%" y="-36%" width="120%" height="172%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="0" stdDeviation="3.5" flood-color="#F472B6" flood-opacity="0.56"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#D946EF" flood-opacity="0.28"/>
-      <feDropShadow dx="-2" dy="3" stdDeviation="0" flood-color="#22D3EE" flood-opacity="0.44"/>
-    </filter>
+    <linearGradient id="cyanGrad" x1="360" y1="0" x2="760" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#7DF9FF"/>
+    </linearGradient>
   </defs>
   <rect width="760" height="170" fill="transparent"/>
+
+  <!-- chromatic-aberration ghost layers for retro glow, kept subtle so legibility stays high -->
   <text
-    x="34"
-    y="116"
-    fill="#17051A"
-    stroke="#17051A"
-    stroke-width="8"
-    stroke-linejoin="round"
-    font-family="'Brush Script MT', 'Segoe Script', 'Snell Roundhand', 'Apple Chancery', cursive"
-    font-size="108"
-    font-weight="700"
-    letter-spacing="-1"
-  >MotleyTech</text>
+    x="25" y="112"
+    font-family="'Arial Black', Impact, Haettenschweiler, 'Franklin Gothic Heavy', sans-serif"
+    font-weight="900"
+    font-size="80"
+    letter-spacing="1.5"
+    fill="#22D3EE"
+    opacity="0.5"
+  >MOTLEY<tspan fill="#F0299D">TECH</tspan></text>
   <text
-    x="34"
-    y="116"
-    fill="url(#pink)"
-    stroke="#E91EBB"
-    stroke-width="0.8"
-    stroke-linejoin="round"
-    filter="url(#softNeon)"
-    font-family="'Brush Script MT', 'Segoe Script', 'Snell Roundhand', 'Apple Chancery', cursive"
-    font-size="108"
-    font-weight="700"
-    letter-spacing="-1"
-  >MotleyTech</text>
+    x="29" y="107"
+    font-family="'Arial Black', Impact, Haettenschweiler, 'Franklin Gothic Heavy', sans-serif"
+    font-weight="900"
+    font-size="80"
+    letter-spacing="1.5"
+    fill="#F0299D"
+    opacity="0.4"
+  >MOTLEY<tspan fill="#22D3EE">TECH</tspan></text>
+
+  <!-- main wordmark -->
+  <text
+    x="27" y="109"
+    font-family="'Arial Black', Impact, Haettenschweiler, 'Franklin Gothic Heavy', sans-serif"
+    font-weight="900"
+    font-size="80"
+    letter-spacing="1.5"
+  >
+    <tspan fill="url(#pinkGrad)">MOTLEY</tspan><tspan fill="url(#cyanGrad)">TECH</tspan>
+  </text>
+
+  <!-- horizon accent line, nods to the retrowave grid/sun motif -->
+  <rect x="27" y="134" width="700" height="5" fill="url(#pinkGrad)" opacity="0.55"/>
 </svg>

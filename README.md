@@ -5,19 +5,11 @@ Marketing homepage for MotleyTech LLC, built with Next.js 15, React 19, and Tail
 ## Local Development
 
 ```bash
-npm install
-npm run dev
+$ brew install nvm
+
+$ nvm use
+
+$ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
-
-## Production
-
-```bash
-npm run build
-npm run start
-```
-
-## Deployment
-
-Import this repository into Vercel and use the default Next.js settings. Vercel will install dependencies from `package.json` and run `npm run build`.

@@ -1,4 +1,4 @@
-import { ServicePanel } from '@/components'
+import { Footer, ServicePanel } from '@/components'
 import Image from 'next/image'
 
 const softwareServices = [
@@ -266,6 +266,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
   )
 }

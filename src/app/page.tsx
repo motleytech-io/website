@@ -50,12 +50,14 @@ const teamProfiles = [
     role: 'Co-Founder / CTO',
     bio: '15+ years in software engineering across titles like CTO, Head of Engineering, Director of Engineering, and General Manager. He has led technology at large enterprises, but does his best work moving fast inside startups — architecting systems, unblocking teams, and shipping.',
     photo: '/team/jimmy.jpg',
+    linkedin: 'https://www.linkedin.com/in/jdepetro/',
   },
   {
     name: 'Carli',
     role: 'Co-Founder / Growth & Marketing',
     bio: '10+ years working across marketing agencies with clients of every shape, size, and product. She has also run growth from the inside as a Head of Growth, hiring and managing agencies herself — so she knows exactly what makes an agency relationship actually work.',
     photo: '/team/carli.jpg',
+    linkedin: 'https://www.linkedin.com/in/carli-auran/',
   },
 ]
 

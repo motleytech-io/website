@@ -1,4 +1,4 @@
-import { Footer, ServicePanel } from '@/components'
+import { Footer, ProfileCard, ServicePanel } from '@/components'
 import Image from 'next/image'
 
 const softwareServices = [
@@ -44,6 +44,23 @@ const aiAccelerators = [
   'Measurement and governance',
 ]
 
+const teamProfiles = [
+  {
+    name: 'Jimmy',
+    role: 'Co-Founder / CTO',
+    bio: '15+ years in software engineering across titles like CTO, Head of Engineering, Director of Engineering, and General Manager. He has led technology at large enterprises, but does his best work moving fast inside startups — architecting systems, unblocking teams, and shipping.',
+    photo: '/team/jimmy.jpg',
+    linkedin: 'https://www.linkedin.com/in/jdepetro/',
+  },
+  {
+    name: 'Carli',
+    role: 'Co-Founder / Growth & Marketing',
+    bio: '10+ years working across marketing agencies with clients of every shape, size, and product. She has also run growth from the inside as a Head of Growth, hiring and managing agencies herself — so she knows exactly what makes an agency relationship actually work.',
+    photo: '/team/carli.jpg',
+    linkedin: 'https://www.linkedin.com/in/carli-auran/',
+  },
+]
+
 const proofPoints = [
   { value: 'AI-first', label: 'Delivery process' },
   { value: 'Full stack', label: 'Software plus growth' },
@@ -86,6 +103,9 @@ export default function Home() {
               </a>
               <a className="transition hover:text-fuchsia-200" href="#strategy">
                 Strategy
+              </a>
+              <a className="transition hover:text-fuchsia-200" href="#about">
+                About
               </a>
               <a className="transition hover:text-fuchsia-200" href="#contact">
                 Contact
@@ -212,6 +232,42 @@ export default function Home() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="relative border-y border-fuchsia-300/20 bg-[#13081f] px-5 py-20 sm:px-8 lg:px-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,211,238,.14),transparent_34%),radial-gradient(circle_at_85%_75%,rgba(236,72,153,.16),transparent_32%)]" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="font-display text-sm font-black uppercase tracking-[.3em] text-fuchsia-200">
+              Family Owned &amp; Operated
+            </p>
+            <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
+              One family. One roof. No corporate layers.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-cyan-50/80">
+              MotleyTech is family owned and operated by Jimmy and Carli. No account managers, no hand-offs between departments — just the two people who built this company doing the work themselves.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-2">
+            {teamProfiles.map((profile) => (
+              <ProfileCard key={profile.name} {...profile} />
+            ))}
+          </div>
+
+          <div className="mt-6 grid gap-6 border border-cyan-300/25 bg-black/24 p-6 sm:p-7 lg:grid-cols-[240px_1fr] lg:items-center">
+            <Image
+              src="/team/family.jpg"
+              alt="Jimmy and Carli with their two sons outside their home"
+              width={900}
+              height={1200}
+              className="mx-auto h-auto w-full max-w-[240px] border border-white/10 object-cover shadow-[0_0_30px_rgba(236,72,153,.18)] lg:mx-0"
+            />
+            <p className="text-base leading-7 text-cyan-50/80">
+              Jimmy and Carli have been married for 10 years, and worked together professionally even before that — as Head of Engineering and Head of Growth at Wag!. MotleyTech is that partnership, formalized: a tight technical-and-growth duo that moves faster than a full department, without the overhead.
+            </p>
           </div>
         </div>
       </section>

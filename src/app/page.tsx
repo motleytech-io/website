@@ -257,7 +257,14 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-6 border border-cyan-300/25 bg-black/24 p-6 sm:p-7">
+          <div className="mt-6 grid gap-6 border border-cyan-300/25 bg-black/24 p-6 sm:p-7 lg:grid-cols-[240px_1fr] lg:items-center">
+            <Image
+              src="/team/family.jpg"
+              alt="Jimmy and Carli with their two sons outside their home"
+              width={900}
+              height={1200}
+              className="mx-auto h-auto w-full max-w-[240px] border border-white/10 object-cover shadow-[0_0_30px_rgba(236,72,153,.18)] lg:mx-0"
+            />
             <p className="text-base leading-7 text-cyan-50/80">
               Jimmy and Carli have been married for 10 years, and worked together professionally even before that — as Head of Engineering and Head of Growth at Wag!. MotleyTech is that partnership, formalized: a tight technical-and-growth duo that moves faster than a full department, without the overhead.
             </p>

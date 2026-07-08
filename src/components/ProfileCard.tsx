@@ -22,7 +22,7 @@ export function ProfileCard({
         {photo && (
           <Image
             src={photo}
-            alt={name}
+            alt={`${name}, ${role} at MotleyTech LLC`}
             width={88}
             height={88}
             className="h-[88px] w-[88px] shrink-0 rounded-full border-2 border-cyan-300/40 object-cover shadow-[0_0_24px_rgba(34,211,238,.25)]"

@@ -20,7 +20,7 @@ export default function PrivacyPage() {
     <main className="mx-auto max-w-3xl px-5 py-20 sm:px-8 lg:px-12">
       <p className="font-display text-sm font-black uppercase tracking-[.3em] text-fuchsia-200">Legal</p>
       <h1 className="mt-4 font-display text-4xl font-black uppercase text-white sm:text-5xl">Privacy Policy</h1>
-      <p className="mt-4 text-sm text-cyan-50/60">Last updated: July 7, 2026</p>
+      <p className="mt-4 text-sm text-cyan-50/60">Last updated: July 8, 2026</p>
 
       <div className="mt-10 space-y-8 text-base leading-7 text-cyan-50/80">
         <section>
@@ -38,8 +38,9 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-xl font-black uppercase text-fuchsia-100">Cookies and similar technology</h2>
           <p className="mt-3">
-            We use two third-party tools that set cookies: PostHog for product analytics, and Klaviyo for onsite
-            personalization and marketing engagement tracking.
+            We use third-party tools that set cookies: PostHog for product analytics, Klaviyo for onsite
+            personalization and marketing engagement tracking, and Google Tag Manager to deploy those and other
+            measurement tags.
           </p>
           <p className="mt-3">
             PostHog stays off by default and only turns on after you click &quot;Accept&quot; on the cookie banner.
@@ -52,6 +53,12 @@ export default function PrivacyPage() {
             Klaviyo loads on every visit to power onsite tracking and personalization, and sets its own cookie to
             recognize returning visitors. If you identify yourself (for example, by submitting an email address),
             Klaviyo lets us tailor marketing communications to you.
+          </p>
+          <p className="mt-3">
+            Google Tag Manager also loads on every visit. It is a container that lets us manage and deploy the
+            tags above without editing site code directly; on its own it does not set tracking cookies, but any
+            tag we configure through it (for example, Google Analytics or Google Ads) may set its own cookies. We
+            will update this policy if we add tags of that kind.
           </p>
         </section>
 
@@ -72,7 +79,8 @@ export default function PrivacyPage() {
           <h2 className="font-display text-xl font-black uppercase text-fuchsia-100">Data retention and sharing</h2>
           <p className="mt-3">
             Analytics and marketing data is retained by PostHog and Klaviyo under our accounts and is not sold to
-            third parties. We do not use tracking cookies for cross-site advertising.
+            third parties. Google Tag Manager does not itself store visitor data; it only passes it to the tags we
+            configure. We do not use tracking cookies for cross-site advertising.
           </p>
         </section>
 

@@ -64,6 +64,25 @@ const teamProfiles = [
   },
 ]
 
+const agencyComparison = [
+  {
+    them: 'Separate dev shop and marketing agency, rarely in sync',
+    us: 'One team ships the product and the campaign together',
+  },
+  {
+    them: 'AI shows up in the pitch deck, not the actual work',
+    us: 'AI built into the roadmap, the architecture, and the ops',
+  },
+  {
+    them: 'Months of onboarding before anything ships',
+    us: 'Working sessions over status reports, shipped in weeks',
+  },
+  {
+    them: "You pay for a full department's overhead",
+    us: 'Senior-level execution, lean by design',
+  },
+]
+
 const proofPoints = [
   { value: 'AI-first', label: 'Delivery process' },
   { value: 'Full stack', label: 'Software plus growth' },
@@ -78,6 +97,22 @@ const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
+
+function MinusIcon() {
+  return (
+    <svg viewBox="0 0 16 16" className="mt-0.5 h-4 w-4 shrink-0 text-white/30" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+      <line x1="3" y1="8" x2="13" y2="8" />
+    </svg>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 16 16" className="mt-0.5 h-4 w-4 shrink-0 text-fuchsia-300" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="3,8.5 6.5,12 13,4" />
+    </svg>
+  )
+}
 
 export default function Home() {
   return (
@@ -154,20 +189,25 @@ export default function Home() {
               <div className="relative border border-cyan-300/30 bg-black/30 p-5 shadow-[0_0_55px_rgba(34,211,238,.18)] backdrop-blur-md">
                 <div className="mb-4 flex items-center justify-between border-b border-fuchsia-300/20 pb-4">
                   <span className="font-display text-sm font-bold uppercase tracking-[.24em] text-cyan-100">
-                    Delivery System
+                    Why MotleyTech
                   </span>
                   <span className="h-2 w-2 bg-fuchsia-300 shadow-[0_0_18px_rgba(244,114,182,.9)]" />
                 </div>
-                <div className="space-y-4">
-                  {['Map the opportunity', 'Architect with AI', 'Ship and launch', 'Measure growth'].map((item, index) => (
-                    <div
-                      key={item}
-                      className="grid grid-cols-[3rem_1fr] items-center gap-4 border border-white/10 bg-white/[.04] p-4"
-                    >
-                      <span className="font-display text-2xl font-black text-fuchsia-200">
-                        0{index + 1}
-                      </span>
-                      <span className="text-base font-semibold text-white/90">{item}</span>
+                <div className="mb-2 grid grid-cols-1 gap-1 text-xs font-bold uppercase tracking-[.18em] sm:grid-cols-2 sm:gap-4">
+                  <span className="text-white/40">Most agencies</span>
+                  <span className="text-fuchsia-200">MotleyTech</span>
+                </div>
+                <div className="divide-y divide-white/10 border-t border-white/10">
+                  {agencyComparison.map((point) => (
+                    <div key={point.us} className="grid grid-cols-1 gap-2 py-3.5 sm:grid-cols-2 sm:gap-4">
+                      <div className="flex items-start gap-2">
+                        <MinusIcon />
+                        <span className="text-sm leading-snug text-white/50">{point.them}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckIcon />
+                        <span className="text-sm font-semibold leading-snug text-white">{point.us}</span>
+                      </div>
                     </div>
                   ))}
                 </div>

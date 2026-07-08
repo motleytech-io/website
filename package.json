@@ -17,6 +17,7 @@
     "@tailwindcss/postcss": "^4.3.2",
     "@vercel/analytics": "^2.0.1",
     "next": "^15.5.20",
+    "posthog-js": "^1.398.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

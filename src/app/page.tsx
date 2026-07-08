@@ -1,5 +1,8 @@
+'use client'
+
 import { Footer, ProfileCard, ServicePanel } from '@/components'
 import Image from 'next/image'
+import posthog from 'posthog-js'
 
 const softwareServices = [
   'Websites and web apps',
@@ -68,6 +71,14 @@ const proofPoints = [
   { value: 'Lean', label: 'Lower cost, less drag' },
 ]
 
+const navLinks = [
+  { label: 'Software', href: '#software' },
+  { label: 'Marketing', href: '#marketing' },
+  { label: 'Strategy', href: '#strategy' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+]
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#070512] text-white">
@@ -95,21 +106,16 @@ export default function Home() {
               />
             </a>
             <nav className="hidden items-center gap-7 text-sm font-semibold uppercase tracking-[.18em] text-cyan-100/80 md:flex">
-              <a className="transition hover:text-fuchsia-200" href="#software">
-                Software
-              </a>
-              <a className="transition hover:text-fuchsia-200" href="#marketing">
-                Marketing
-              </a>
-              <a className="transition hover:text-fuchsia-200" href="#strategy">
-                Strategy
-              </a>
-              <a className="transition hover:text-fuchsia-200" href="#about">
-                About
-              </a>
-              <a className="transition hover:text-fuchsia-200" href="#contact">
-                Contact
-              </a>
+              {navLinks.map(({ label, href }) => (
+                <a
+                  key={href}
+                  className="transition hover:text-fuchsia-200"
+                  href={href}
+                  onClick={() => posthog.capture('nav_link_clicked', { label, href })}
+                >
+                  {label}
+                </a>
+              ))}
             </nav>
           </header>
 
@@ -129,12 +135,14 @@ export default function Home() {
                 <a
                   href="mailto:hello@motleytech.io?subject=Let's%20build%20with%20MotleyTech"
                   className="inline-flex min-h-12 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"
+                  onClick={() => posthog.capture('cta_start_project_clicked', { location: 'hero' })}
                 >
                   Start a Project
                 </a>
                 <a
                   href="#services"
                   className="inline-flex min-h-12 items-center justify-center border border-cyan-200/60 bg-cyan-200/10 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-cyan-50 transition hover:-translate-y-0.5 hover:bg-cyan-200/20"
+                  onClick={() => posthog.capture('cta_see_services_clicked', { location: 'hero' })}
                 >
                   See Services
                 </a>
@@ -316,6 +324,7 @@ export default function Home() {
             <a
               href="mailto:hello@motleytech.io?subject=MotleyTech%20project%20inquiry"
               className="inline-flex min-h-14 items-center justify-center border border-white bg-white px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#10051b] transition hover:-translate-y-0.5 hover:bg-cyan-100"
+              onClick={() => posthog.capture('contact_email_clicked', { location: 'contact_section' })}
             >
               hello@motleytech.io
             </a>

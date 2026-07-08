@@ -38,26 +38,30 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-xl font-black uppercase text-fuchsia-100">Cookies and similar technology</h2>
           <p className="mt-3">
-            We only use one category of non-essential storage: analytics and marketing engagement tracking,
-            provided by PostHog and Klaviyo. These stay off by default and only turn on after you click
-            &quot;Accept&quot; on the cookie banner. Your choice is remembered in your browser&apos;s local storage
-            so we don&apos;t ask again, and you can change your mind at any time using the &quot;Cookie
-            Settings&quot; link in the site footer.
+            We use two third-party tools that set cookies: PostHog for product analytics, and Klaviyo for onsite
+            personalization and marketing engagement tracking.
           </p>
           <p className="mt-3">
+            PostHog stays off by default and only turns on after you click &quot;Accept&quot; on the cookie banner.
             If you accept, PostHog records page views, clicks on key buttons and links, and basic device/browser
             information so we can understand how visitors use the site and improve it. Analytics traffic is routed
             through our own domain (<code className="text-cyan-100">/ingest</code>) before reaching PostHog&apos;s
-            servers. Klaviyo records similar onsite browsing behavior and, if you identify yourself (for example by
-            submitting an email address), lets us tailor marketing communications to you.
+            servers.
+          </p>
+          <p className="mt-3">
+            Klaviyo loads on every visit to power onsite tracking and personalization, and sets its own cookie to
+            recognize returning visitors. If you identify yourself (for example, by submitting an email address),
+            Klaviyo lets us tailor marketing communications to you.
           </p>
         </section>
 
         <section>
           <h2 className="font-display text-xl font-black uppercase text-fuchsia-100">Your choices</h2>
           <p className="mt-3">
-            You can accept or decline analytics at any time. Declining (or never accepting) means no analytics data
-            is collected about your visit.
+            You can accept or decline PostHog analytics at any time. Declining (or never accepting) means no
+            PostHog data is collected about your visit. Your choice is remembered in your browser&apos;s local
+            storage so we don&apos;t ask again, and you can change your mind at any time using the &quot;Cookie
+            Settings&quot; link in the site footer.
           </p>
           <div className="mt-4">
             <CookieSettingsLink className="inline-flex min-h-11 items-center justify-center border border-cyan-200/60 bg-cyan-200/10 px-5 py-2.5 font-display text-xs font-black uppercase tracking-[.18em] text-cyan-50 transition hover:-translate-y-0.5 hover:bg-cyan-200/20" />

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import posthog from 'posthog-js'
+import { loadKlaviyo } from '@/lib/klaviyo'
 
 const REOPEN_EVENT = 'cookie-consent:open'
 
@@ -14,8 +15,11 @@ export function CookieConsent() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    if (posthog.get_explicit_consent_status() === 'pending') {
+    const status = posthog.get_explicit_consent_status()
+    if (status === 'pending') {
       setVisible(true)
+    } else if (status === 'granted') {
+      loadKlaviyo()
     }
 
     const openBanner = () => setVisible(true)
@@ -56,6 +60,7 @@ export function CookieConsent() {
             type="button"
             onClick={() => {
               posthog.opt_in_capturing()
+              loadKlaviyo()
               setVisible(false)
             }}
             className="inline-flex min-h-11 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-5 py-2.5 font-display text-xs font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_25px_rgba(244,114,182,.45)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"

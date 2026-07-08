@@ -1,7 +1,4 @@
 import posthog from "posthog-js"
-import { loadKlaviyo } from "@/lib/klaviyo"
-
-loadKlaviyo()
 
 posthog.init(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN!, {
   api_host: "/ingest",

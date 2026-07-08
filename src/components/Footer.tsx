@@ -1,6 +1,8 @@
 'use client'
 
+import Link from 'next/link'
 import posthog from 'posthog-js'
+import { CookieSettingsLink } from './CookieSettingsLink'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -16,6 +18,12 @@ export function Footer() {
         >
           hello@motleytech.io
         </a>
+        <div className="flex items-center gap-5">
+          <Link href="/privacy" className="transition hover:text-fuchsia-200">
+            Privacy Policy
+          </Link>
+          <CookieSettingsLink className="transition hover:text-fuchsia-200" />
+        </div>
       </div>
     </footer>
   )

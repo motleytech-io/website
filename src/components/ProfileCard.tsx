@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import posthog from 'posthog-js'
 
 export function ProfileCard({
   name,
@@ -34,6 +37,7 @@ export function ProfileCard({
               target="_blank"
               rel="noopener noreferrer"
               className="mt-1 inline-flex text-xs font-bold uppercase tracking-[.18em] text-fuchsia-200 transition hover:text-fuchsia-100"
+              onClick={() => posthog.capture('linkedin_profile_clicked', { name, role })}
             >
               LinkedIn ↗
             </a>

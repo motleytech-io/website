@@ -3,3 +3,4 @@ node_modules
 .pnpm-store
 out
 .claude
+tsconfig.tsbuildinfo

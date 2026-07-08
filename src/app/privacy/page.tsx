@@ -38,16 +38,18 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-xl font-black uppercase text-fuchsia-100">Cookies and similar technology</h2>
           <p className="mt-3">
-            We only use one category of non-essential storage: product analytics, provided by PostHog. Analytics
-            stay off by default and only turn on after you click &quot;Accept&quot; on the cookie banner. Your choice
-            is remembered in your browser&apos;s local storage so we don&apos;t ask again, and you can change your mind
-            at any time using the &quot;Cookie Settings&quot; link in the site footer.
+            We only use one category of non-essential storage: analytics and marketing engagement tracking,
+            provided by PostHog and Klaviyo. These stay off by default and only turn on after you click
+            &quot;Accept&quot; on the cookie banner. Your choice is remembered in your browser&apos;s local storage
+            so we don&apos;t ask again, and you can change your mind at any time using the &quot;Cookie
+            Settings&quot; link in the site footer.
           </p>
           <p className="mt-3">
             If you accept, PostHog records page views, clicks on key buttons and links, and basic device/browser
             information so we can understand how visitors use the site and improve it. Analytics traffic is routed
             through our own domain (<code className="text-cyan-100">/ingest</code>) before reaching PostHog&apos;s
-            servers.
+            servers. Klaviyo records similar onsite browsing behavior and, if you identify yourself (for example by
+            submitting an email address), lets us tailor marketing communications to you.
           </p>
         </section>
 
@@ -65,8 +67,8 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-xl font-black uppercase text-fuchsia-100">Data retention and sharing</h2>
           <p className="mt-3">
-            Analytics data is retained by PostHog under our account and is not sold or shared with third parties for
-            advertising purposes. We do not use tracking cookies for cross-site advertising.
+            Analytics and marketing data is retained by PostHog and Klaviyo under our accounts and is not sold to
+            third parties. We do not use tracking cookies for cross-site advertising.
           </p>
         </section>
 

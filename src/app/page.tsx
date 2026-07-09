@@ -180,13 +180,13 @@ export default function Home() {
                 MotleyTech LLC builds the technical systems and digital marketing engines that move a business forward. Websites, backend platforms, mobile apps, AI roadmaps, SEO, SEM, social, analytics, CTO strategy, and CMO strategy all under one neon roof.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="mailto:hello@motleytech.io?subject=Let's%20build%20with%20MotleyTech"
+                <Link
+                  href="/founding-client"
                   className="inline-flex min-h-12 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"
                   onClick={() => posthog.capture('cta_start_project_clicked', { location: 'hero' })}
                 >
                   Start a Project
-                </a>
+                </Link>
                 <a
                   href="#services"
                   className="inline-flex min-h-12 items-center justify-center border border-cyan-200/60 bg-cyan-200/10 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-cyan-50 transition hover:-translate-y-0.5 hover:bg-cyan-200/20"
@@ -401,13 +401,13 @@ export default function Home() {
                 Whether you need a new product, a cleaner stack, an AI roadmap, a faster marketing engine, or a strategic partner who can own the messy middle, MotleyTech is built for momentum.
               </p>
             </div>
-            <a
-              href="mailto:hello@motleytech.io?subject=MotleyTech%20project%20inquiry"
+            <Link
+              href="/founding-client"
               className="inline-flex min-h-14 items-center justify-center border border-white bg-white px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#10051b] transition hover:-translate-y-0.5 hover:bg-cyan-100"
-              onClick={() => posthog.capture('contact_email_clicked', { location: 'contact_section' })}
+              onClick={() => posthog.capture('contact_cta_clicked', { location: 'contact_section' })}
             >
-              hello@motleytech.io
-            </a>
+              Get Started
+            </Link>
           </div>
         </div>
       </section>

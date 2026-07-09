@@ -61,7 +61,7 @@ type FormState = typeof initialState
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 const inputClass =
-  'w-full border border-cyan-300/25 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-fuchsia-300/60 focus:outline-none focus:ring-1 focus:ring-fuchsia-300/40'
+  'w-full border border-cyan-300/25 bg-black/30 px-4 py-3 text-base sm:text-sm text-white placeholder:text-white/30 focus:border-fuchsia-300/60 focus:outline-none focus:ring-1 focus:ring-fuchsia-300/40'
 const labelClass = 'mb-2 block text-xs font-bold uppercase tracking-[.18em] text-cyan-100/80'
 
 function buildMailtoFallback(form: FormState, channels: string[]) {
@@ -369,7 +369,7 @@ export function IntakeForm() {
         disabled={status === 'submitting'}
         className="inline-flex min-h-12 w-full items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
-        {status === 'submitting' ? 'Submitting...' : 'Apply for the Founding Client Program'}
+        {status === 'submitting' ? 'Submitting...' : 'Submit Application'}
       </button>
     </form>
   )

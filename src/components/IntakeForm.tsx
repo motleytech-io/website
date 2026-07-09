@@ -367,11 +367,13 @@ export function IntakeForm() {
           checked={form.consent}
           onChange={(event) => updateField('consent', event.target.checked)}
         />
-        I agree to be contacted by MotleyTech about the Founding Client Program and have read the{' '}
-        <a href="/privacy" className="underline decoration-fuchsia-300/60 underline-offset-2 hover:text-fuchsia-200">
-          Privacy Policy
-        </a>
-        .
+        <span>
+          I agree to be contacted by MotleyTech about the Founding Client Program and have read the{' '}
+          <a href="/privacy" className="underline decoration-fuchsia-300/60 underline-offset-2 hover:text-fuchsia-200">
+            Privacy Policy
+          </a>
+          .
+        </span>
       </label>
 
       {status === 'error' && (

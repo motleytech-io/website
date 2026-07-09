@@ -2,6 +2,7 @@
 
 import { Footer, ProfileCard, ServicePanel } from '@/components'
 import Image from 'next/image'
+import Link from 'next/link'
 import posthog from 'posthog-js'
 
 const softwareServices = [
@@ -95,6 +96,7 @@ const navLinks = [
   { label: 'Marketing', href: '#marketing' },
   { label: 'Strategy', href: '#strategy' },
   { label: 'About', href: '#about' },
+  { label: 'Founding Client', href: '/founding-client' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -141,16 +143,33 @@ export default function Home() {
               />
             </a>
             <nav className="hidden items-center gap-7 text-sm font-semibold uppercase tracking-[.18em] text-cyan-100/80 md:flex">
-              {navLinks.map(({ label, href }) => (
-                <a
-                  key={href}
-                  className="transition hover:text-fuchsia-200"
-                  href={href}
-                  onClick={() => posthog.capture('nav_link_clicked', { label, href })}
-                >
-                  {label}
-                </a>
-              ))}
+              {navLinks.map(({ label, href }) => {
+                const handleNavClick = () => {
+                  posthog.capture('nav_link_clicked', { label, href })
+                  if (href === '/founding-client') {
+                    posthog.capture('founding_client_cta_clicked', { location: 'nav' })
+                  }
+                }
+                return href.startsWith('/') ? (
+                  <Link
+                    key={href}
+                    className="transition hover:text-fuchsia-200"
+                    href={href}
+                    onClick={handleNavClick}
+                  >
+                    {label}
+                  </Link>
+                ) : (
+                  <a
+                    key={href}
+                    className="transition hover:text-fuchsia-200"
+                    href={href}
+                    onClick={handleNavClick}
+                  >
+                    {label}
+                  </a>
+                )
+              })}
             </nav>
           </header>
 
@@ -167,13 +186,13 @@ export default function Home() {
                 MotleyTech LLC builds the technical systems and digital marketing engines that move a business forward. Websites, backend platforms, mobile apps, AI roadmaps, SEO, SEM, social, analytics, CTO strategy, and CMO strategy all under one neon roof.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="mailto:hello@motleytech.io?subject=Let's%20build%20with%20MotleyTech"
+                <Link
+                  href="/founding-client"
                   className="inline-flex min-h-12 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"
-                  onClick={() => posthog.capture('cta_start_project_clicked', { location: 'hero' })}
+                  onClick={() => posthog.capture('founding_client_cta_clicked', { location: 'hero' })}
                 >
                   Start a Project
-                </a>
+                </Link>
                 <a
                   href="#services"
                   className="inline-flex min-h-12 items-center justify-center border border-cyan-200/60 bg-cyan-200/10 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-cyan-50 transition hover:-translate-y-0.5 hover:bg-cyan-200/20"
@@ -347,6 +366,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-y border-fuchsia-300/20 bg-[#13081f] px-5 py-20 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 border border-fuchsia-300/30 bg-black/30 p-6 shadow-[0_0_55px_rgba(217,70,239,.16)] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center lg:p-14">
+            <div>
+              <p className="font-display text-sm font-black uppercase tracking-[.3em] text-fuchsia-200">
+                Founding Client Program
+              </p>
+              <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
+                Get free web hosting, marketing support, and an agency team.
+              </h2>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-cyan-50/80">
+                MotleyTech is selecting a small number of founding clients for real software or marketing work,
+                provided at no cost up to an agreed scope, in exchange for the right to document the results. Tell
+                us about your business, current website, and marketing budget and stack to see if you are a fit.
+              </p>
+            </div>
+            <Link
+              href="/founding-client"
+              className="inline-flex min-h-14 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"
+              onClick={() => posthog.capture('founding_client_cta_clicked', { location: 'homepage_banner' })}
+            >
+              Apply Now
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="px-5 py-20 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl border border-cyan-300/30 bg-[linear-gradient(135deg,rgba(34,211,238,.14),rgba(236,72,153,.16),rgba(7,5,18,.9))] p-6 shadow-[0_0_70px_rgba(236,72,153,.16)] sm:p-10 lg:p-14">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -361,13 +407,13 @@ export default function Home() {
                 Whether you need a new product, a cleaner stack, an AI roadmap, a faster marketing engine, or a strategic partner who can own the messy middle, MotleyTech is built for momentum.
               </p>
             </div>
-            <a
-              href="mailto:hello@motleytech.io?subject=MotleyTech%20project%20inquiry"
+            <Link
+              href="/founding-client"
               className="inline-flex min-h-14 items-center justify-center border border-white bg-white px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#10051b] transition hover:-translate-y-0.5 hover:bg-cyan-100"
-              onClick={() => posthog.capture('contact_email_clicked', { location: 'contact_section' })}
+              onClick={() => posthog.capture('founding_client_cta_clicked', { location: 'contact_section' })}
             >
-              hello@motleytech.io
-            </a>
+              Get Started
+            </Link>
           </div>
         </div>
       </section>

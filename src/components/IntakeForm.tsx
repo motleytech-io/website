@@ -133,6 +133,14 @@ export function IntakeForm() {
         last_name: form.lastName,
         organization: form.businessName,
         phone_number: form.phone || undefined,
+        website_url: form.websiteUrl || 'None',
+        industry: form.industry,
+        team_size: form.teamSize || 'Not specified',
+        monthly_marketing_budget: form.monthlyBudget,
+        marketing_channels: channelList,
+        website_platform: form.websitePlatform,
+        biggest_challenge: form.challenge,
+        why_good_fit: form.whyGoodFit || 'Not specified',
       })
 
       await window.klaviyo?.track('Founding Client Application', {

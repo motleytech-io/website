@@ -143,13 +143,19 @@ export default function Home() {
               />
             </a>
             <nav className="hidden items-center gap-7 text-sm font-semibold uppercase tracking-[.18em] text-cyan-100/80 md:flex">
-              {navLinks.map(({ label, href }) =>
-                href.startsWith('/') ? (
+              {navLinks.map(({ label, href }) => {
+                const handleNavClick = () => {
+                  posthog.capture('nav_link_clicked', { label, href })
+                  if (href === '/founding-client') {
+                    posthog.capture('founding_client_cta_clicked', { location: 'nav' })
+                  }
+                }
+                return href.startsWith('/') ? (
                   <Link
                     key={href}
                     className="transition hover:text-fuchsia-200"
                     href={href}
-                    onClick={() => posthog.capture('nav_link_clicked', { label, href })}
+                    onClick={handleNavClick}
                   >
                     {label}
                   </Link>
@@ -158,12 +164,12 @@ export default function Home() {
                     key={href}
                     className="transition hover:text-fuchsia-200"
                     href={href}
-                    onClick={() => posthog.capture('nav_link_clicked', { label, href })}
+                    onClick={handleNavClick}
                   >
                     {label}
                   </a>
-                ),
-              )}
+                )
+              })}
             </nav>
           </header>
 
@@ -183,7 +189,7 @@ export default function Home() {
                 <Link
                   href="/founding-client"
                   className="inline-flex min-h-12 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-6 py-3 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"
-                  onClick={() => posthog.capture('cta_start_project_clicked', { location: 'hero' })}
+                  onClick={() => posthog.capture('founding_client_cta_clicked', { location: 'hero' })}
                 >
                   Start a Project
                 </Link>
@@ -404,7 +410,7 @@ export default function Home() {
             <Link
               href="/founding-client"
               className="inline-flex min-h-14 items-center justify-center border border-white bg-white px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#10051b] transition hover:-translate-y-0.5 hover:bg-cyan-100"
-              onClick={() => posthog.capture('contact_cta_clicked', { location: 'contact_section' })}
+              onClick={() => posthog.capture('founding_client_cta_clicked', { location: 'contact_section' })}
             >
               Get Started
             </Link>

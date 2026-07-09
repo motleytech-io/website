@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import posthog from 'posthog-js'
 
 declare global {
@@ -86,6 +86,11 @@ export function IntakeForm() {
   const [form, setForm] = useState<FormState>(initialState)
   const [channels, setChannels] = useState<string[]>([])
   const [status, setStatus] = useState<Status>('idle')
+  const [hasStartedForm, setHasStartedForm] = useState(false)
+
+  useEffect(() => {
+    posthog.capture('founding_client_page_viewed')
+  }, [])
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }))
@@ -97,10 +102,17 @@ export function IntakeForm() {
     )
   }
 
+  function handleFormFocus() {
+    if (hasStartedForm) return
+    setHasStartedForm(true)
+    posthog.capture('founding_client_form_started')
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     if (form.honeypot) {
+      posthog.capture('founding_client_application_spam_blocked')
       setStatus('success')
       return
     }
@@ -108,6 +120,11 @@ export function IntakeForm() {
     setStatus('submitting')
 
     const channelList = channels.length ? channels : ['None currently']
+
+    posthog.capture('founding_client_application_submit_attempted', {
+      industry: form.industry,
+      monthly_marketing_budget: form.monthlyBudget,
+    })
 
     try {
       await window.klaviyo?.identify({
@@ -138,6 +155,11 @@ export function IntakeForm() {
       setStatus('success')
     } catch (error) {
       console.error('Founding client application failed to submit', error)
+      posthog.capture('founding_client_application_failed', {
+        industry: form.industry,
+        monthly_marketing_budget: form.monthlyBudget,
+        error: error instanceof Error ? error.message : 'unknown',
+      })
       setStatus('error')
     }
   }
@@ -155,7 +177,7 @@ export function IntakeForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" noValidate={false}>
+    <form onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-6" noValidate={false}>
       <input
         type="text"
         name="company_website"

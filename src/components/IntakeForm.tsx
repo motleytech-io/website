@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useEffect, useState } from 'react'
+import { SubmitEvent, useEffect, useState } from 'react'
 import posthog from 'posthog-js'
 
 declare global {
@@ -108,7 +108,7 @@ export function IntakeForm() {
     posthog.capture('founding_client_form_started')
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
 
     if (form.honeypot) {

@@ -3,14 +3,9 @@
 import { SubmitEvent, useEffect, useState } from 'react'
 import posthog from 'posthog-js'
 
-declare global {
-  interface Window {
-    klaviyo?: {
-      identify: (properties: Record<string, unknown>) => Promise<unknown>
-      track: (event: string, properties?: Record<string, unknown>) => Promise<unknown>
-    }
-  }
-}
+const KLAVIYO_SITE_ID = process.env.NEXT_PUBLIC_KLAVIYO_SITE_ID
+const KLAVIYO_LIST_ID = process.env.NEXT_PUBLIC_KLAVIYO_LIST_ID
+const KLAVIYO_API_REVISION = '2026-04-15'
 
 const teamSizeOptions = ['Just me', '2-10', '11-50', '50+']
 
@@ -63,6 +58,126 @@ type Status = 'idle' | 'submitting' | 'success' | 'error'
 const inputClass =
   'w-full border border-cyan-300/25 bg-black/30 px-4 py-3 text-base sm:text-sm text-white placeholder:text-white/30 focus:border-fuchsia-300/60 focus:outline-none focus:ring-1 focus:ring-fuchsia-300/40'
 const labelClass = 'mb-2 block text-xs font-bold uppercase tracking-[.18em] text-cyan-100/80'
+
+async function klaviyoRequest(path: string, body: unknown) {
+  const response = await fetch(`https://a.klaviyo.com${path}?company_id=${KLAVIYO_SITE_ID}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/vnd.api+json',
+      revision: KLAVIYO_API_REVISION,
+    },
+    body: JSON.stringify(body),
+  })
+
+  if (!response.ok) {
+    throw new Error(`Klaviyo request to ${path} failed with status ${response.status}`)
+  }
+}
+
+function businessProperties(form: FormState, channelList: string[]) {
+  return {
+    business_name: form.businessName,
+    website_url: form.websiteUrl || 'None',
+    industry: form.industry,
+    team_size: form.teamSize || 'Not specified',
+    monthly_marketing_budget: form.monthlyBudget,
+    marketing_channels: channelList,
+    website_platform: form.websitePlatform,
+    biggest_challenge: form.challenge,
+    why_good_fit: form.whyGoodFit || 'Not specified',
+  }
+}
+
+async function upsertKlaviyoProfile(form: FormState, channelList: string[]) {
+  if (!KLAVIYO_SITE_ID) return
+
+  await klaviyoRequest('/client/profiles', {
+    data: {
+      type: 'profile',
+      attributes: {
+        email: form.email,
+        first_name: form.firstName,
+        last_name: form.lastName,
+        organization: form.businessName,
+        phone_number: form.phone || undefined,
+        properties: businessProperties(form, channelList),
+      },
+    },
+  })
+}
+
+async function trackKlaviyoEvent(form: FormState, channelList: string[]) {
+  if (!KLAVIYO_SITE_ID) return
+
+  await klaviyoRequest('/client/events', {
+    data: {
+      type: 'event',
+      attributes: {
+        properties: businessProperties(form, channelList),
+        metric: {
+          data: {
+            type: 'metric',
+            attributes: {
+              name: 'Founding Client Application',
+            },
+          },
+        },
+        profile: {
+          data: {
+            type: 'profile',
+            attributes: {
+              email: form.email,
+              first_name: form.firstName,
+              last_name: form.lastName,
+              organization: form.businessName,
+              phone_number: form.phone || undefined,
+            },
+          },
+        },
+      },
+    },
+  })
+}
+
+async function subscribeToKlaviyoList(form: FormState) {
+  if (!KLAVIYO_SITE_ID || !KLAVIYO_LIST_ID) return
+
+  await klaviyoRequest('/client/subscriptions', {
+    data: {
+      type: 'subscription',
+      attributes: {
+        custom_source: 'Founding Client Application Form',
+        profile: {
+          data: {
+            type: 'profile',
+            attributes: {
+              email: form.email,
+              first_name: form.firstName,
+              last_name: form.lastName,
+              organization: form.businessName,
+              phone_number: form.phone || undefined,
+              subscriptions: {
+                email: {
+                  marketing: {
+                    consent: 'SUBSCRIBED',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      relationships: {
+        list: {
+          data: {
+            type: 'list',
+            id: KLAVIYO_LIST_ID,
+          },
+        },
+      },
+    },
+  })
+}
 
 function buildMailtoFallback(form: FormState, channels: string[]) {
   const lines = [
@@ -127,33 +242,9 @@ export function IntakeForm() {
     })
 
     try {
-      await window.klaviyo?.identify({
-        email: form.email,
-        first_name: form.firstName,
-        last_name: form.lastName,
-        organization: form.businessName,
-        phone_number: form.phone || undefined,
-        website_url: form.websiteUrl || 'None',
-        industry: form.industry,
-        team_size: form.teamSize || 'Not specified',
-        monthly_marketing_budget: form.monthlyBudget,
-        marketing_channels: channelList,
-        website_platform: form.websitePlatform,
-        biggest_challenge: form.challenge,
-        why_good_fit: form.whyGoodFit || 'Not specified',
-      })
-
-      await window.klaviyo?.track('Founding Client Application', {
-        business_name: form.businessName,
-        website_url: form.websiteUrl || 'None',
-        industry: form.industry,
-        team_size: form.teamSize || 'Not specified',
-        monthly_marketing_budget: form.monthlyBudget,
-        marketing_channels: channelList,
-        website_platform: form.websitePlatform,
-        biggest_challenge: form.challenge,
-        why_good_fit: form.whyGoodFit || 'Not specified',
-      })
+      await upsertKlaviyoProfile(form, channelList)
+      await trackKlaviyoEvent(form, channelList)
+      await subscribeToKlaviyoList(form)
 
       posthog.capture('founding_client_application_submitted', {
         industry: form.industry,

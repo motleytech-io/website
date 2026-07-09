@@ -374,7 +374,7 @@ export default function Home() {
                 Founding Client Program
               </p>
               <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
-                Become a founding client. Walk away with a case study.
+                Get free web hosting, marketing support, and an agency team.
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-cyan-50/80">
                 MotleyTech is selecting a small number of founding clients for real software or marketing work,

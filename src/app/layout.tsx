@@ -4,6 +4,8 @@ import Script from 'next/script'
 import { CookieConsent } from '@/components'
 import './globals.css'
 
+const klaviyoSiteId = process.env.NEXT_PUBLIC_KLAVIYO_SITE_ID
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://motleytech.io'),
   title: {
@@ -111,6 +113,19 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        {klaviyoSiteId && (
+          <>
+            <Script
+              id="klaviyo-onsite"
+              strategy="afterInteractive"
+              async
+              src={`https://static.klaviyo.com/onsite/js/${klaviyoSiteId}/klaviyo.js?company_id=${klaviyoSiteId}`}
+            />
+            <Script id="klaviyo-init" strategy="afterInteractive">
+              {`!function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();`}
+            </Script>
+          </>
+        )}
         <Analytics />
         {children}
         <CookieConsent />

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: '/founding-client',
   },
   openGraph: {
-    title: 'Founding Client Program | MotleyTech LLC',
+    title: 'Founding Client Program | MotleyTech',
     description:
       'Apply for the MotleyTech Founding Client Program: hands-on software and marketing work for a small number of SMBs, provided at no cost up to an agreed scope, in exchange for an honest case study.',
     url: 'https://motleytech.io/founding-client',

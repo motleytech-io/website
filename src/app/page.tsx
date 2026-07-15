@@ -15,37 +15,25 @@ const softwareServices = [
 ]
 
 const marketingServices = [
-  'SEO and content strategy',
-  'SEM and paid search',
-  'Social campaigns',
-  'Budget management',
+  'Paid campaign management',
+  'Web and social content strategy',
   'Analytics and conversion tracking',
-  'AI-assisted campaign operations',
-  'Landing pages that ship fast',
+  'Landing page and funnel optimizations',
 ]
 
 const leadershipServices = [
   {
     title: 'Fractional CTO',
-    copy: 'Architecture, platform strategy, vendor selection, product planning, delivery leadership, technical hiring, security posture, and pragmatic engineering execution.',
+    copy: 'Senior technical leadership without the full-time hire: architecture decisions, vendor calls, and delivery oversight, backed by AI tooling that gets execution done faster.',
   },
   {
     title: 'Fractional CMO',
-    copy: 'Positioning, channel strategy, growth planning, funnel design, analytics, campaign budget management, content direction, and clear marketing operating rhythms.',
+    copy: "Growth strategy and operating rhythm from someone who's run it before. Positioning, funnel, and budget decisions made with the judgment of a full-time CMO.",
   },
   {
     title: 'AI Roadmap',
-    copy: 'A practical plan for where AI belongs in your business, what to automate first, what to avoid, and how to turn your team into a force multiplier team.',
+    copy: 'A practical plan for where AI belongs in your business, what to automate first, what to avoid, and how to turn your team into a force multiplier.',
   },
-]
-
-const aiAccelerators = [
-  'AI opportunity audits',
-  'LLM and agent architecture',
-  'Workflow automation',
-  'Team enablement and training',
-  'Internal tools and copilots',
-  'Measurement and governance',
 ]
 
 const teamProfiles = [
@@ -59,7 +47,7 @@ const teamProfiles = [
   {
     name: 'Carli',
     role: 'Co-Founder / Growth & Marketing',
-    bio: '10+ years working across marketing agencies with clients of every shape, size, and product. She has also run growth from the inside as a Head of Growth, hiring and managing agencies herself — so she knows exactly what makes an agency relationship actually work.',
+    bio: "10+ years working in growth marketing. A self-proclaimed 'scrappy' marketer, her foundation was set in agencies with clients of every shape, size, and product. She's also run growth from the inside as a Head of Growth, hiring and managing agencies herself — so she knows exactly what makes an agency relationship actually work.",
     photo: '/team/carli.jpg',
     linkedin: 'https://www.linkedin.com/in/carli-auran/',
   },
@@ -86,9 +74,9 @@ const agencyComparison = [
 
 const proofPoints = [
   { value: 'AI-first', label: 'Delivery process' },
-  { value: 'Full stack', label: 'Software plus growth' },
+  { value: 'Full stack', label: 'Engineering and Growth' },
   { value: 'CTO + CMO', label: 'Strategic leadership' },
-  { value: 'Lean', label: 'Lower cost, less drag' },
+  { value: 'Lean', label: 'Less Overhead, Faster Results' },
 ]
 
 const navLinks = [
@@ -176,14 +164,14 @@ export default function Home() {
           <div id="top" className="grid flex-1 items-center gap-10 py-14 lg:grid-cols-[1.05fr_.95fr]">
             <div className="max-w-3xl">
               <p className="mb-5 inline-flex border border-fuchsia-300/40 bg-fuchsia-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[.28em] text-fuchsia-100 shadow-[0_0_30px_rgba(217,70,239,.22)]">
-                AI-enabled software and growth
+                AI-enabled website management and growth marketing
               </p>
               <h1 className="font-display text-5xl font-black uppercase leading-[.9] text-white sm:text-7xl lg:text-8xl">
                 Ship faster.
                 <span className="block neon-text">Market louder.</span>
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-cyan-50/80 sm:text-xl">
-                MotleyTech LLC builds the technical systems and digital marketing engines that move a business forward. Websites, backend platforms, mobile apps, AI roadmaps, SEO, SEM, social, analytics, CTO strategy, and CMO strategy all under one neon roof.
+                MotleyTech builds the technical systems and marketing engines that move a business forward, backed by CTO and CMO strategy — all under one neon roof.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <Link
@@ -203,7 +191,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative hidden lg:block">
+            <div className="relative">
               <div className="absolute -inset-8 bg-[radial-gradient(circle_at_center,rgba(34,211,238,.22),transparent_64%)]" />
               <div className="relative border border-cyan-300/30 bg-black/30 p-5 shadow-[0_0_55px_rgba(34,211,238,.18)] backdrop-blur-md">
                 <div className="mb-4 flex items-center justify-between border-b border-fuchsia-300/20 pb-4">
@@ -271,7 +259,7 @@ export default function Home() {
               id="marketing"
               eyebrow="Grow"
               title="Digital Marketing"
-              description="Campaigns, search, content, social, spend management, and tracking handled with the same urgency as the codebase."
+              description="Performance marketing, organic content, CRO and tracking handled with the same urgency as the codebase."
               services={marketingServices}
             />
           </div>
@@ -281,11 +269,8 @@ export default function Home() {
       <section id="strategy" className="border-y border-fuchsia-300/20 bg-[#13081f] px-5 py-20 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="font-display text-sm font-black uppercase tracking-[.3em] text-cyan-200">
-              Strategic Leadership
-            </p>
-            <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
-              Fractional CTO, Fractional CMO, and AI transformation without the executive overhead.
+            <h2 className="font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
+              Strategic leadership without the executive overhead.
             </h2>
           </div>
           <div className="grid gap-4">
@@ -333,62 +318,8 @@ export default function Home() {
               className="mx-auto h-40 w-40 shrink-0 rounded-full border-2 border-cyan-300/40 object-cover shadow-[0_0_30px_rgba(236,72,153,.25)] sm:h-48 sm:w-48 lg:mx-0 lg:h-52 lg:w-52"
             />
             <p className="text-sm leading-6 text-cyan-50/80">
-              Jimmy and Carli have been married for 10 years, and worked together professionally even before that — as Head of Engineering and Head of Growth at Wag!. MotleyTech is that partnership, formalized: a tight technical-and-growth duo that moves faster than a full department, without the overhead.
+              Jimmy and Carli have been married for 10 years, and worked together professionally for several years as Head of Engineering and Head of Growth at Wag!. MotleyTech is that partnership, formalized: a tight technical-and-growth duo that moves faster than a full department, without the overhead.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-5 py-20 sm:px-8 lg:px-12">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(34,211,238,.08),transparent_42%),radial-gradient(circle_at_70%_40%,rgba(236,72,153,.18),transparent_34%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-          <div>
-            <p className="font-display text-sm font-black uppercase tracking-[.3em] text-fuchsia-200">
-              AI Roadmap + Architecture
-            </p>
-            <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
-              Turn the team you have into the team that moves twice as fast.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-cyan-50/80">
-              MotleyTech helps identify the AI use cases that actually matter, designs the architecture to support them, and builds the tooling, automation, and operating model around your team. The goal is not novelty. The goal is leverage.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {aiAccelerators.map((accelerator) => (
-              <div
-                key={accelerator}
-                className="border border-cyan-300/25 bg-black/28 px-4 py-4 text-sm font-bold uppercase tracking-[.12em] text-cyan-50 shadow-[0_0_30px_rgba(34,211,238,.08)]"
-              >
-                {accelerator}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-fuchsia-300/20 bg-[#13081f] px-5 py-20 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 border border-fuchsia-300/30 bg-black/30 p-6 shadow-[0_0_55px_rgba(217,70,239,.16)] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center lg:p-14">
-            <div>
-              <p className="font-display text-sm font-black uppercase tracking-[.3em] text-fuchsia-200">
-                Founding Client Program
-              </p>
-              <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
-                Get free web hosting, marketing support, and an agency team.
-              </h2>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-cyan-50/80">
-                MotleyTech is selecting a small number of founding clients for real software or marketing work,
-                provided at no cost up to an agreed scope, in exchange for the right to document the results. Tell
-                us about your business, current website, and marketing budget and stack to see if you are a fit.
-              </p>
-            </div>
-            <Link
-              href="/founding-client"
-              className="inline-flex min-h-14 items-center justify-center border border-fuchsia-200 bg-fuchsia-400 px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#120316] shadow-[0_0_35px_rgba(244,114,182,.55)] transition hover:-translate-y-0.5 hover:bg-fuchsia-200"
-              onClick={() => posthog.capture('founding_client_cta_clicked', { location: 'homepage_banner' })}
-            >
-              Apply Now
-            </Link>
           </div>
         </div>
       </section>
@@ -401,10 +332,13 @@ export default function Home() {
                 Ready when you are
               </p>
               <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-white sm:text-6xl">
-                Bring the problem. We will bring the horsepower.
+                Bring the problem. We&rsquo;ll bring the horsepower.
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-cyan-50/80">
-                Whether you need a new product, a cleaner stack, an AI roadmap, a faster marketing engine, or a strategic partner who can own the messy middle, MotleyTech is built for momentum.
+                Whether you need a new product, a cleaner stack, an AI roadmap, a faster marketing engine, or a strategic partner who can own the messy middle — MotleyTech is built for momentum.
+              </p>
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-cyan-50/80">
+                Right now, we&rsquo;re selecting a small number of founding clients for real software or marketing work, provided at no cost up to an agreed scope, in exchange for the right to document the results. Tell us about your business to see if you&rsquo;re a fit.
               </p>
             </div>
             <Link
@@ -412,7 +346,7 @@ export default function Home() {
               className="inline-flex min-h-14 items-center justify-center border border-white bg-white px-7 py-4 font-display text-sm font-black uppercase tracking-[.18em] text-[#10051b] transition hover:-translate-y-0.5 hover:bg-cyan-100"
               onClick={() => posthog.capture('founding_client_cta_clicked', { location: 'contact_section' })}
             >
-              Get Started
+              Apply Now
             </Link>
           </div>
         </div>

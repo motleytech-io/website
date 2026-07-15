@@ -9,11 +9,11 @@ const klaviyoSiteId = process.env.NEXT_PUBLIC_KLAVIYO_SITE_ID
 export const metadata: Metadata = {
   metadataBase: new URL('https://motleytech.io'),
   title: {
-    default: 'MotleyTech LLC | AI-Enabled Software Development and Digital Marketing',
-    template: '%s | MotleyTech LLC',
+    default: 'MotleyTech | AI-Enabled Website Management and Growth Marketing',
+    template: '%s | MotleyTech',
   },
   description:
-    'MotleyTech LLC builds software, digital marketing engines, AI roadmaps, AI architecture, fractional CTO leadership, and fractional CMO strategy at startup speed.',
+    'MotleyTech builds software, digital marketing engines, AI roadmaps, AI architecture, fractional CTO leadership, and fractional CMO strategy at startup speed.',
   keywords: [
     'MotleyTech',
     'software development',
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     shortcut: '/favicon.svg',
   },
   openGraph: {
-    title: 'MotleyTech LLC',
+    title: 'MotleyTech',
     description:
       'AI-enabled software development, fractional CTO and CMO leadership, AI roadmap architecture, and full-funnel digital marketing.',
     type: 'website',
     url: 'https://motleytech.io',
-    siteName: 'MotleyTech LLC',
+    siteName: 'MotleyTech',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MotleyTech LLC',
+    title: 'MotleyTech',
     description:
       'AI-enabled software development, fractional CTO and CMO leadership, AI roadmap architecture, and full-funnel digital marketing.',
   },
@@ -61,12 +61,12 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'MotleyTech LLC',
+  name: 'MotleyTech',
   url: 'https://motleytech.io',
   logo: 'https://motleytech.io/logo.svg',
   email: 'hello@motleytech.io',
   description:
-    'MotleyTech LLC builds software, digital marketing engines, AI roadmaps, AI architecture, fractional CTO leadership, and fractional CMO strategy at startup speed.',
+    'MotleyTech builds software, digital marketing engines, AI roadmaps, AI architecture, fractional CTO leadership, and fractional CMO strategy at startup speed.',
   founders: [
     {
       '@type': 'Person',

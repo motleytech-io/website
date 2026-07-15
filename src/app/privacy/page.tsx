@@ -4,13 +4,13 @@ import { CookieSettingsLink } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How MotleyTech LLC collects, uses, and protects your data, including cookies and analytics.',
+  description: 'How MotleyTech collects, uses, and protects your data, including cookies and analytics.',
   alternates: {
     canonical: '/privacy',
   },
   openGraph: {
-    title: 'Privacy Policy | MotleyTech LLC',
-    description: 'How MotleyTech LLC collects, uses, and protects your data, including cookies and analytics.',
+    title: 'Privacy Policy | MotleyTech',
+    description: 'How MotleyTech collects, uses, and protects your data, including cookies and analytics.',
     url: 'https://motleytech.io/privacy',
   },
 }

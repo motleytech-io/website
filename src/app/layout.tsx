@@ -5,6 +5,7 @@ import { CookieConsent } from '@/components'
 import './globals.css'
 
 const klaviyoSiteId = process.env.NEXT_PUBLIC_KLAVIYO_SITE_ID
+const chatbotId = process.env.NEXT_PUBLIC_CHATBOT_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://motleytech.io'),
@@ -113,6 +114,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        {chatbotId && (
+          <Script id="chatbot">
+            {`(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="www.chatbase.co/embed.min.js";script.id="${chatbotId}";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();`}
+          </Script>
+        )}
         {klaviyoSiteId && (
           <>
             <Script

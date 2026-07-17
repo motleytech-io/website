@@ -46,6 +46,10 @@ const initialState = {
   teamSize: '',
   monthlyBudget: '',
   websitePlatform: '',
+  instagramUrl: '',
+  facebookUrl: '',
+  linkedinUrl: '',
+  otherSocialUrl: '',
   challenge: '',
   whyGoodFit: '',
   consent: false,
@@ -83,6 +87,10 @@ function businessProperties(form: FormState, channelList: string[]) {
     monthly_marketing_budget: form.monthlyBudget,
     marketing_channels: channelList,
     website_platform: form.websitePlatform,
+    instagram_url: form.instagramUrl || 'None',
+    facebook_url: form.facebookUrl || 'None',
+    linkedin_url: form.linkedinUrl || 'None',
+    other_social_url: form.otherSocialUrl || 'None',
     biggest_challenge: form.challenge,
     why_good_fit: form.whyGoodFit || 'Not specified',
   }
@@ -189,6 +197,10 @@ function buildMailtoFallback(form: FormState, channels: string[]) {
     `Monthly marketing budget: ${form.monthlyBudget}`,
     `Current marketing channels: ${channels.length ? channels.join(', ') : 'None currently'}`,
     `Website platform: ${form.websitePlatform}`,
+    `Instagram: ${form.instagramUrl || 'None'}`,
+    `Facebook: ${form.facebookUrl || 'None'}`,
+    `LinkedIn: ${form.linkedinUrl || 'None'}`,
+    `Other social: ${form.otherSocialUrl || 'None'}`,
     `Biggest challenge: ${form.challenge}`,
     `Why a good fit: ${form.whyGoodFit || 'Not specified'}`,
   ]
@@ -430,6 +442,52 @@ export function IntakeForm() {
               {channel}
             </label>
           ))}
+        </div>
+      </div>
+
+      <div>
+        <p className={labelClass}>Social media (optional)</p>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label className={labelClass} htmlFor="instagramUrl">Instagram</label>
+            <input
+              id="instagramUrl"
+              placeholder="https://instagram.com/..."
+              className={inputClass}
+              value={form.instagramUrl}
+              onChange={(event) => updateField('instagramUrl', event.target.value)}
+            />
+          </div>
+          <div>
+            <label className={labelClass} htmlFor="facebookUrl">Facebook</label>
+            <input
+              id="facebookUrl"
+              placeholder="https://facebook.com/..."
+              className={inputClass}
+              value={form.facebookUrl}
+              onChange={(event) => updateField('facebookUrl', event.target.value)}
+            />
+          </div>
+          <div>
+            <label className={labelClass} htmlFor="linkedinUrl">LinkedIn</label>
+            <input
+              id="linkedinUrl"
+              placeholder="https://linkedin.com/company/..."
+              className={inputClass}
+              value={form.linkedinUrl}
+              onChange={(event) => updateField('linkedinUrl', event.target.value)}
+            />
+          </div>
+          <div>
+            <label className={labelClass} htmlFor="otherSocialUrl">Other (TikTok, X, YouTube, etc.)</label>
+            <input
+              id="otherSocialUrl"
+              placeholder="https://"
+              className={inputClass}
+              value={form.otherSocialUrl}
+              onChange={(event) => updateField('otherSocialUrl', event.target.value)}
+            />
+          </div>
         </div>
       </div>
 
